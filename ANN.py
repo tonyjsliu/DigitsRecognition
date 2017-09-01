@@ -18,20 +18,17 @@ train_y = dataset_train.iloc[:, 0].values
 test_x = dataset_test.iloc[:, 1:].values
 test_y = dataset_test.iloc[:, 0].values
 
-#Part 2 - Noew make the ANN
-
+#Part 2 - Make the ANN
+#Encoding categorical data
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
-
 onehotencoder1 = OneHotEncoder(categorical_features = [0])
 train_y = np.array(train_y).reshape(len(train_y), 1)
 train_y = onehotencoder1.fit_transform(train_y).toarray()
-
 
 # Importing the Keras libraries and packages
 import keras
 from keras.models import Sequential
 from keras.layers import Dense
-
 
 #Initialising the ANN
 classifier = Sequential()
@@ -47,7 +44,6 @@ classifier.add(Dense(units = 10, kernel_initializer = 'uniform', activation = 's
 
 #Compiling the ANN
 classifier.compile(optimizer = 'adam', loss = 'binary_crossentropy', metrics = ['accuracy'])
-
 
 # Fitting the ANN to the Training set
 classifier.fit(train_x, train_y, batch_size = 100, epochs = 50)
