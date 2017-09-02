@@ -1,8 +1,6 @@
 #!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 """
-Created on Fri Sep  1 12:17:18 2017
-
 @author: junshengliu
 """
 
