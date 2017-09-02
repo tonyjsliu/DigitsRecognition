@@ -18,6 +18,16 @@ train_y = dataset_train.iloc[:, 0].values
 test_x = dataset_test.iloc[:, 1:].values
 test_y = dataset_test.iloc[:, 0].values
 
+for r in range(len(train_x)):
+    for c in range(len(train_x[0])):
+        if (train_x[r][c] > 0):
+            train_x[r][c] = 1
+            
+for r in range(len(test_x)):
+    for c in range(len(test_x[0])):
+        if (test_x[r][c] > 0):
+            test_x[r][c] = 1
+
 #Part 2 - Make the ANN
 #Encoding categorical data
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
